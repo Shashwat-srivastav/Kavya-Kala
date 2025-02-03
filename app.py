@@ -10,7 +10,7 @@ load_dotenv()   # Replace openai with requests
 
 app = Flask(__name__)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY") 
-# "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"
+
 #   # Set GROQ_API_KEY in environment
 
 @app.route('/')
