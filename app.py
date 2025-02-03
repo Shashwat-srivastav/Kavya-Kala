@@ -4,9 +4,9 @@
 
 from flask import Flask, request, jsonify, render_template
 import os
-# from dotenv import load_dotenv  # Import the load_dotenv function
+from dotenv import load_dotenv  # Import the load_dotenv function
 import requests
-# load_dotenv()   # Replace openai with requests
+load_dotenv()   # Replace openai with requests
 
 app = Flask(__name__)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY") 
