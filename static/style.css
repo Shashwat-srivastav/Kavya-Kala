@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Updated color palette */
+        --deep-maroon: #6D213C;
+        --deep-saffron: #FF8C00;
+        --saffron: #FFA500;
+        --light-gold: #F3C06C;
+        --pale-gold: #F3D19C;
+        --cream: #FFF8E7;
+
+        /* Retain other variables */
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 346 77% 49%;
+        --primary-foreground: 355 100% 97%;
+        --secondary: 240 24% 64%;
+        --secondary-foreground: 240 10% 3.9%;
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 240 5.9% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 346 77% 49%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 20 14.3% 4.1%;
+        --foreground: 0 0% 95%;
+        --card: 24 9.8% 10%;
+        --card-foreground: 0 0% 95%;
+        --popover: 0 0% 9%;
+        --popover-foreground: 0 0% 95%;
+        --primary: 346 77% 49%;
+        --primary-foreground: 355 100% 97%;
+        --secondary: 240 24% 64%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 15%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 12 6.5% 15.1%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 85.7% 97.3%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 346 77% 49%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@font-face {
+    font-family: "Devanagari";
+    src: url("../fonts/Devanagari.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+#hindi-poem-container,
+#english-poem-container {
+    max-height: 16rem;
+    overflow-y: auto;
+}
+
+#hindi-poem-container p,
+#english-poem-container p {
+    font-size: 1rem;
+}
+
+.font-devanagari {
+    font-family: "Devanagari", sans-serif;
+}
+
+/* Indian-inspired pattern with adjusted colors */
+.indian-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFA500' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Decorative elements */
+.decorative-border {
+    position: relative;
+}
+
+.decorative-border::before,
+.decorative-border::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z' fill='%236D213C' fill-opacity='0.2'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.decorative-border::before {
+    top: -10px;
+    left: -10px;
+    transform: rotate(0deg);
+}
+
+.decorative-border::after {
+    bottom: -10px;
+    right: -10px;
+    transform: rotate(180deg);
+}

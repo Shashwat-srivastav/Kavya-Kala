@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>🌺 Poet's Rang - Bilingual Poem Generator</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Lato:ital,wght@0,300;0,400;1,400&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="min-h-screen bg-cream" style="background-color: var(--cream);">
+    <header class="py-6 px-4" style="background-color: var(--deep-saffron);">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <!-- <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="w-10 h-10" /> -->
+                <h1 class="text-2xl font-bold font-devanagari" style="color: var(--cream);">
+                    कव्य कला
+                </h1>
+            </div>
+           
+        </div>
+    </header>
+
+    <main class="container mx-auto py-12 px-4">
+        <div class="card p-8 shadow-lg rounded-lg border-2 indian-pattern"
+            style="background-color: var(--cream); border-color: var(--light-gold);">
+            <h2 class="text-3xl font-bold text-center mb-6 font-devanagari" style="color: var(--deep-maroon);">
+                Generate Your Poem
+            </h2>
+            <form id="poemForm" class="space-y-6">
+                <div>
+                    <label for="names" class="block text-lg font-medium mb-2" style="color: var(--deep-maroon);">
+                        Enter Names
+                    </label>
+                    <input type="text" id="names" placeholder="Enter names separated by commas"
+                        class="w-full px-4 py-3 border-2 border-[var(--light-gold)] rounded-md focus:ring-2 focus:ring-[var(--deep-saffron)] text-lg"
+                        required />
+                </div>
+                <div>
+                    <label class="block text-lg font-medium mb-2" style="color: var(--deep-maroon);">
+                        Select Emotion
+                    </label>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button type="button"
+                            class="emotion-btn px-6 py-3 rounded-full text-lg transition-all duration-300 border-2 border-[var(--light-gold)] text-[var(--deep-maroon)] bg-[var(--pale-gold)] hover:bg-[var(--light-gold)] focus:ring-2 focus:ring-[var(--deep-saffron)]">
+                            Joy
+                        </button>
+                        <button type="button"
+                            class="emotion-btn px-6 py-3 rounded-full text-lg transition-all duration-300 border-2 border-[var(--light-gold)] text-[var(--deep-maroon)] bg-[var(--pale-gold)] hover:bg-[var(--light-gold)] focus:ring-2 focus:ring-[var(--deep-saffron)]">
+                            Sorrow
+                        </button>
+                        <button type="button"
+                            class="emotion-btn px-6 py-3 rounded-full text-lg transition-all duration-300 border-2 border-[var(--light-gold)] text-[var(--deep-maroon)] bg-[var(--pale-gold)] hover:bg-[var(--light-gold)] focus:ring-2 focus:ring-[var(--deep-saffron)]">
+                            Love
+                        </button>
+                        <button type="button"
+                            class="emotion-btn px-6 py-3 rounded-full text-lg transition-all duration-300 border-2 border-[var(--light-gold)] text-[var(--deep-maroon)] bg-[var(--pale-gold)] hover:bg-[var(--light-gold)] focus:ring-2 focus:ring-[var(--deep-saffron)]">
+                            Anger
+                        </button>
+                        <button type="button"
+                            class="emotion-btn px-6 py-3 rounded-full text-lg transition-all duration-300 border-2 border-[var(--light-gold)] text-[var(--deep-maroon)] bg-[var(--pale-gold)] hover:bg-[var(--light-gold)] focus:ring-2 focus:ring-[var(--deep-saffron)]">
+                            Nostalgia
+                        </button>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full py-3 rounded-md text-lg font-semibold transition-all duration-300 ease-in-out shadow-md bg-[var(--pale-gold)] text-[var(--deep-maroon)] hover:bg-[var(--light-gold)]">
+                    Generate Poem
+                </button>
+            </form>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Hindi Poem Card -->
+            <div class="card p-6 shadow-lg rounded-lg border-2 indian-pattern"
+                style="background: linear-gradient(135deg, var(--pale-gold), var(--cream)); border-color: var(--light-gold);">
+                <h3 class="text-2xl font-semibold mb-4 text-center font-devanagari" style="color: var(--deep-maroon);">
+                    हिंदी कविता
+                </h3>
+                <div id="hindi-poem-container"
+                    class="h-64 bg-white bg-opacity-60 rounded-md p-4 border-2 border-dashed flex items-center justify-center"
+                    style="border-color: var(--light-gold);">
+                    <p class="text-center text-lg font-devanagari" style="color: var(--deep-maroon);">
+                        आपकी हिंदी कविता यहाँ दिखाई देगी
+                    </p>
+                </div>
+            </div>
+
+            <!-- English Poem Card -->
+            <div class="card p-6 shadow-lg rounded-lg border-2 indian-pattern"
+                style="background: linear-gradient(135deg, var(--cream), var(--pale-gold)); border-color: var(--light-gold);">
+                <h3 class="text-2xl font-semibold mb-4 text-center" style="color: var(--deep-maroon);">
+                    English Poem
+                </h3>
+                <div id="english-poem-container"
+                    class="h-64 bg-white bg-opacity-60 rounded-md p-4 border-2 border-dashed flex items-center justify-center"
+                    style="border-color: var(--light-gold);">
+                    <p class="text-center text-lg" style="color: var(--deep-maroon);">
+                        Your generated English poem will appear here
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 px-4" style="background-color: var(--deep-maroon);">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <p class="text-lg" style="color: var(--cream);">&copy; 2023 Kavya Kala. All rights reserved.</p>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li>
+                        <a href="#" class="text-lg transition-colors hover:text-[var(--pale-gold)]"
+                            style="color: var(--cream);">Terms of Service</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-lg transition-colors hover:text-[var(--pale-gold)]"
+                            style="color: var(--cream);">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-lg transition-colors hover:text-[var(--pale-gold)]"
+                            style="color: var(--cream);">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
